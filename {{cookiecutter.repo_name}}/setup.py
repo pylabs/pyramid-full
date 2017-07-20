@@ -9,11 +9,18 @@ with open(os.path.join(here, 'CHANGES.txt')) as f:
     CHANGES = f.read()
 
 requires = [
+    'alembic',
     'plaster_pastedeploy',
     'pyramid',
     'pyramid_jinja2',
     'pyramid_debugtoolbar',
-    'waitress',
+    'pyramid_mailer',
+    'pyramid_wtforms',
+    'pyramid_tm',
+    'pyramid_sqlalchemy',
+    'pyramid_redis_sessions',
+    'pyramid_i18n_wrapper',
+    'waitress'
 ]
 
 tests_require = [
