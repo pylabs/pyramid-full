@@ -8,22 +8,18 @@ Getting Started
 
     cd {{ cookiecutter.repo_name }}
 
-- Create a Python virtual environment.
+- Install the project in editable mode with its development requirements.
 
-    python3 -m venv env
+    pipenv install --dev
 
-- Upgrade packaging tools.
+- Enter to your project virtual environment.
 
-    env/bin/pip install --upgrade pip setuptools
-
-- Install the project in editable mode with its testing requirements.
-
-    env/bin/pip install -e ".[testing]"
+    pipenv shell
 
 - Run your project's tests.
 
-    env/bin/pytest
+    pytest
 
-- Run your project.
+- Run your project in development mode.
 
-    env/bin/pserve development.ini
+    pserve development.ini --reload
