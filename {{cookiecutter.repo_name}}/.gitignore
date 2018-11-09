@@ -1,6 +1,6 @@
 development.ini
 production.ini
-wsgi.wsgi
+wsgi.py
 __pycache__
 *.egg-info
 .pytest_cache
