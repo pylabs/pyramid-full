@@ -12,8 +12,8 @@ def main():
 
     # generate secret key
     for file_name in ['development.ini', 'production.ini']:
-        ini_file = os.path.join(working_dir, file_name)
-        with open(ini_file) as f:
+        ini_file = os.path.join(working_dir, os.path.splitext(file_name)[0])
+        with open(file_name) as f:
             content = f.read()
         random_string = ''.join(random.SystemRandom().choice(string.ascii_lowercase + string.digits) for _ in range(50))
         content = regex.sub(r'\1 = {}'.format(random_string), content)
