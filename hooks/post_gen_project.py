@@ -8,7 +8,7 @@ REGEX_LIST = [r'^(session.key) = .+$', r'^(session.secret) = .+$']
 
 def main():
     working_dir = os.path.abspath(os.path.join(os.path.curdir))
-    regex_list = [re.compile(i) for i in REGEX_LIST]
+    regex_list = [re.compile(i, re.MULTILINE) for i in REGEX_LIST]
 
     # generate pyramid_beaker secret key
     for file_name in ['development.ini.sample', 'production.ini.sample']:
