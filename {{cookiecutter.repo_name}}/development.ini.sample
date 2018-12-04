@@ -10,6 +10,7 @@ pyramid.reload_templates = true
 pyramid.debug_authorization = false
 pyramid.debug_notfound = false
 pyramid.debug_routematch = false
+pyramid.default_locale_name = en
 pyramid.includes =
     pyramid_debugtoolbar
 
@@ -20,31 +21,13 @@ jinja2.filters =
     route_path = pyramid_jinja2.filters:route_path_filter
     static_path = pyramid_jinja2.filters:static_path_filter
 
-production_mode = false
-
-auth_mode = false
-
-# secret key
-#secret_key = CHANGE_ME
-
-# using pyramid_redis_sessions
-#redis.sessions.secret = CHANGE_ME
-
-# database settings
-#
-# Note that you need to install the real database driver
-# by yourself, like pymysql.
-# The url syntax can be found here: http://docs.sqlalchemy.org/en/latest/core/engines.html
-#sqlalchemy.url = mysql+pymysql://DB_USER:DB_PASS@DB_HOST/DB_NAME
-#sqlalchemy.url = sqlite:///%(here)s/{{ cookiecutter.repo_name }}.db
-
-# i18n settings
-#
-# Set it to a valid locale name (default is en).
-#translation_domain = {{ cookiecutter.repo_name }}
-#pyramid.default_locale_name = {{ cookiecutter.locale_name }}
-#jinja2.newstyle = true
-#jinja2.i18n.domain = {{ cookiecutter.repo_name }}
+# pyramid_beaker settings
+session.type = file
+session.data_dir = %(here)s/data/sessions/data
+session.lock_dir = %(here)s/data/sessions/lock
+session.key = CHANGE_ME
+session.secret = CHANGE_ME
+session.cookie_on_exception = true
 
 # By default, the toolbar only appears for clients from IP addresses
 # '127.0.0.1' and '::1'.

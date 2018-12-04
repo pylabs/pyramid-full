@@ -1,0 +1,3 @@
+[run]
+omit = 
+    {{ cookiecutter.repo_name }}/__init__.py

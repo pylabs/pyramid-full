@@ -20,13 +20,15 @@ requires = [
     'pyramid_sqlalchemy',
     'pyramid_redis_sessions',
     'pyramid_i18n_wrapper',
-    'waitress'
+    'waitress',
+    'invoke'
 ]
 
 tests_require = [
     'WebTest',
     'pytest',
     'pytest-cov',
+    'pytest-mock'
 ]
 
 setup(

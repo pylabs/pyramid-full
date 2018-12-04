@@ -47,14 +47,8 @@ def main(global_config, **settings):
     # using jinja2 as default template engine
     config.include('pyramid_jinja2')
 
-    # session settings
-    if asbool(settings['production_mode']):
-        # using pyramid_redis_sessions
-        config.include('pyramid_redis_sessions')
-    else:
-        # using builtin session mechanism
-        from pyramid.session import SignedCookieSessionFactory
-        config.set_session_factory(SignedCookieSessionFactory(settings['secret_key']))
+    # pyramid_beaker as session backend
+    config.include('pyramid_beaker')
 
     # transaction manager settings, used by pyramid_sqlalchemy and
     # pyramid_mailer

@@ -4,19 +4,22 @@ import string
 import random
 
 
-REGEX = r'^#(secret_key|redis\.sessions\.secret) = .+$'
+REGEX_KEY = r'^(session.key) = .+$'
+REGEX_SECRET = r'^(session.secret) = .+$'
 
 def main():
     working_dir = os.path.abspath(os.path.join(os.path.curdir))
     regex = re.compile(REGEX, flags=re.MULTILINE)
 
-    # generate secret key
-    for file_name in ['development.ini', 'production.ini']:
+    # generate pyramid_beaker secret key
+    for file_name in ['development.ini.sample', 'production.ini.sample']:
         ini_file = os.path.join(working_dir, os.path.splitext(file_name)[0])
         with open(file_name) as f:
             content = f.read()
-        random_string = ''.join(random.SystemRandom().choice(string.ascii_lowercase + string.digits) for _ in range(50))
-        content = regex.sub(r'\1 = {}'.format(random_string), content)
+        for regex in REGEX_KEY, REGEX_SECRET:
+            random_string = ''.join(random.SystemRandom().choice(string.ascii_lowercase + string.digits) \
+                                    for _ in range(50))
+            content = regex.sub('\1 = {}'.format(random_string), content)
         with open(ini_file, 'w') as f:
             f.write(content)
     
