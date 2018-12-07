@@ -22,4 +22,6 @@ Getting Started
 
 - Run your project in development mode.
 
+    cp development.ini.sample development.ini
+    # edit development.ini to meet your needs
     pserve development.ini --reload
