@@ -9,13 +9,6 @@ from pyramid.httpexceptions import HTTPFound
 #from pyramid_mailer.mailer import Mailer
 #from pyramid_mailer.message import Message
 
-# i18n
-#from pyramid_i18n_wrapper import LazyTranslationString
-#translation_domain = pyramid.threadlocal.get_current_registry().settings['translation_domain']
-#lts = LazyTranslationString(translation_domain)
-#_ = lts.translate
-#ngettext = lts.pluralize
-
 # auth
 #@view_config(route_name='login', renderer='templates/login.jinja2')
 #def login_view(request):
@@ -23,18 +16,16 @@ from pyramid.httpexceptions import HTTPFound
 #
 #    if request.method == 'POST':
 #        # put your auth logic here
-#        try:
-#            username = request.POST['username']
-#            password = request.POST['password']
-#            if username == 'foo' and password == 'bar':
-#                headers = remember(request, username)
-#                return HTTPFound(location=request.route_path('home'), headers=headers)
-#            else:
-#                raise Exception()
-#        except:
+#        username = request.POST['username']
+#        password = request.POST['password']
+#        if username == 'foo' and password == 'bar':
+#            headers = remember(request, username)
+#            return HTTPFound(location=request.route_path('home'), headers=headers)
+#        else:
 #            return {'error_message': 'Login failed, please check your username and password.'}
 #    else:
 #        return {}
+#
 #
 #@view_config(route_name='logout')
 #def logout_view(request):

@@ -4,7 +4,7 @@ import string
 import random
 
 
-REGEX_LIST = [r'^(session.key) = .+$', r'^(session.secret) = .+$']
+REGEX_LIST = [r'^(session.key) = .+$', r'^(session.secret) = .+$', r'^(auth_key) = .+$']
 
 def main():
     working_dir = os.path.abspath(os.path.join(os.path.curdir))
