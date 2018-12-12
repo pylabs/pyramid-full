@@ -10,7 +10,7 @@ def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """
 
-    authn_policy = AuthTktAuthenticationPolicy(settings['secret_key'],
+    authn_policy = AuthTktAuthenticationPolicy(settings['auth.key'],
                                                timeout=86400,
                                                callback=group_finder)
     authz_policy = ACLAuthorizationPolicy()
